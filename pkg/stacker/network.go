@@ -12,8 +12,8 @@ import (
 
 	"github.com/cheggaaa/pb/v3"
 	"github.com/pkg/errors"
-	"stackerbuild.io/stacker/pkg/lib"
-	"stackerbuild.io/stacker/pkg/log"
+	"github.com/raharper/stacker/pkg/lib"
+	"github.com/raharper/stacker/pkg/log"
 )
 
 // download with caching support in the specified cache dir.

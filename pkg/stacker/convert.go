@@ -12,8 +12,8 @@ import (
 	"github.com/moby/buildkit/frontend/dockerfile/parser"
 	"github.com/pkg/errors"
 	"sigs.k8s.io/yaml"
-	"stackerbuild.io/stacker/pkg/log"
-	"stackerbuild.io/stacker/pkg/types"
+	"github.com/raharper/stacker/pkg/log"
+	"github.com/raharper/stacker/pkg/types"
 )
 
 type Stackerfile map[string]*types.Layer

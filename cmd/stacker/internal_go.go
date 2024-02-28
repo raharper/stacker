@@ -10,10 +10,10 @@ import (
 	"github.com/pkg/errors"
 	cli "github.com/urfave/cli/v2"
 	"golang.org/x/sys/unix"
-	"stackerbuild.io/stacker/pkg/atomfs"
-	"stackerbuild.io/stacker/pkg/lib"
-	"stackerbuild.io/stacker/pkg/log"
-	"stackerbuild.io/stacker/pkg/overlay"
+	"github.com/raharper/stacker/pkg/atomfs"
+	"github.com/raharper/stacker/pkg/lib"
+	"github.com/raharper/stacker/pkg/log"
+	"github.com/raharper/stacker/pkg/overlay"
 )
 
 var internalGoCmd = cli.Command{

@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	. "github.com/smartystreets/goconvey/convey"
-	"stackerbuild.io/stacker/pkg/lib"
+	"github.com/raharper/stacker/pkg/lib"
 )
 
 func TestDir(t *testing.T) {

@@ -22,9 +22,9 @@ import (
 	"github.com/opencontainers/umoci/oci/casext"
 	"github.com/pkg/errors"
 	"gopkg.in/yaml.v2"
-	"stackerbuild.io/stacker/pkg/lib"
-	"stackerbuild.io/stacker/pkg/log"
-	"stackerbuild.io/stacker/pkg/types"
+	"github.com/raharper/stacker/pkg/lib"
+	"github.com/raharper/stacker/pkg/log"
+	"github.com/raharper/stacker/pkg/types"
 )
 
 type PublishArgs struct {

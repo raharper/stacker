@@ -15,7 +15,7 @@ import (
 	"github.com/pkg/errors"
 	"gopkg.in/yaml.v2"
 
-	"stackerbuild.io/stacker/pkg/lib"
+	"github.com/raharper/stacker/pkg/lib"
 )
 
 const (

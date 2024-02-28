@@ -18,8 +18,8 @@ import (
 	"github.com/Masterminds/semver/v3"
 	"github.com/pkg/errors"
 	"golang.org/x/sys/unix"
-	"stackerbuild.io/stacker/pkg/log"
-	"stackerbuild.io/stacker/pkg/mount"
+	"github.com/raharper/stacker/pkg/log"
+	"github.com/raharper/stacker/pkg/mount"
 )
 
 var checkZstdSupported sync.Once

@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	. "github.com/smartystreets/goconvey/convey"
-	"stackerbuild.io/stacker/pkg/lib"
+	"github.com/raharper/stacker/pkg/lib"
 )
 
 func TestFile(t *testing.T) {

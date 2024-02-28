@@ -9,9 +9,9 @@ import (
 	ispec "github.com/opencontainers/image-spec/specs-go/v1"
 	"github.com/opencontainers/umoci"
 	"github.com/pkg/errors"
-	"stackerbuild.io/stacker/pkg/lib"
-	"stackerbuild.io/stacker/pkg/log"
-	"stackerbuild.io/stacker/pkg/types"
+	"github.com/raharper/stacker/pkg/lib"
+	"github.com/raharper/stacker/pkg/log"
+	"github.com/raharper/stacker/pkg/types"
 )
 
 // generateOverlayDirsLayers generates oci layers from all overlay_dirs of this image

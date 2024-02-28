@@ -6,10 +6,10 @@ import (
 	"os/exec"
 
 	"github.com/pkg/errors"
-	stackeridmap "stackerbuild.io/stacker/pkg/container/idmap"
-	embed_exec "stackerbuild.io/stacker/pkg/embed-exec"
-	"stackerbuild.io/stacker/pkg/log"
-	"stackerbuild.io/stacker/pkg/types"
+	stackeridmap "github.com/raharper/stacker/pkg/container/idmap"
+	embed_exec "github.com/raharper/stacker/pkg/embed-exec"
+	"github.com/raharper/stacker/pkg/log"
+	"github.com/raharper/stacker/pkg/types"
 )
 
 // A wrapper which executes userCmd in a namespace if stacker has not already

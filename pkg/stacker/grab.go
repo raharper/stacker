@@ -6,8 +6,8 @@ import (
 	"path"
 	"path/filepath"
 
-	"stackerbuild.io/stacker/pkg/container"
-	"stackerbuild.io/stacker/pkg/types"
+	"github.com/raharper/stacker/pkg/container"
+	"github.com/raharper/stacker/pkg/types"
 )
 
 func Grab(sc types.StackerConfig, storage types.Storage, name string, source string, targetDir string,

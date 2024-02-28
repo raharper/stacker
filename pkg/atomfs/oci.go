@@ -5,7 +5,7 @@ import (
 
 	ispec "github.com/opencontainers/image-spec/specs-go/v1"
 	"github.com/opencontainers/umoci"
-	stackeroci "stackerbuild.io/stacker/pkg/oci"
+	stackeroci "github.com/raharper/stacker/pkg/oci"
 )
 
 type MountOCIOpts struct {

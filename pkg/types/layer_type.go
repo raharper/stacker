@@ -7,7 +7,7 @@ import (
 
 	ispec "github.com/opencontainers/image-spec/specs-go/v1"
 	"github.com/pkg/errors"
-	"stackerbuild.io/stacker/pkg/squashfs"
+	"github.com/raharper/stacker/pkg/squashfs"
 )
 
 var ErrEmptyLayers = errors.New("empty layers")

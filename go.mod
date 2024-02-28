@@ -1,4 +1,4 @@
-module stackerbuild.io/stacker
+module github.com/raharper/stacker
 
 go 1.21.0
 

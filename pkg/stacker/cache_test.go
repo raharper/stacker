@@ -10,7 +10,7 @@ import (
 	"github.com/opencontainers/umoci"
 	"github.com/opencontainers/umoci/oci/casext"
 	"github.com/stretchr/testify/assert"
-	"stackerbuild.io/stacker/pkg/types"
+	"github.com/raharper/stacker/pkg/types"
 )
 
 func TestLayerHashing(t *testing.T) {

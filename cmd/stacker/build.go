@@ -4,9 +4,9 @@ import (
 	"fmt"
 
 	cli "github.com/urfave/cli/v2"
-	"stackerbuild.io/stacker/pkg/squashfs"
-	"stackerbuild.io/stacker/pkg/stacker"
-	"stackerbuild.io/stacker/pkg/types"
+	"github.com/raharper/stacker/pkg/squashfs"
+	"github.com/raharper/stacker/pkg/stacker"
+	"github.com/raharper/stacker/pkg/types"
 )
 
 var buildCmd = cli.Command{

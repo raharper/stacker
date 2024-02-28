@@ -10,9 +10,9 @@ import (
 	ispec "github.com/opencontainers/image-spec/specs-go/v1"
 	"github.com/opencontainers/umoci/oci/casext"
 	"github.com/pkg/errors"
-	"stackerbuild.io/stacker/pkg/log"
-	stackeroci "stackerbuild.io/stacker/pkg/oci"
-	"stackerbuild.io/stacker/pkg/types"
+	"github.com/raharper/stacker/pkg/log"
+	stackeroci "github.com/raharper/stacker/pkg/oci"
+	"github.com/raharper/stacker/pkg/types"
 )
 
 type overlayMetadata struct {

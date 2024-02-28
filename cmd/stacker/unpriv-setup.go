@@ -7,7 +7,7 @@ import (
 
 	"github.com/pkg/errors"
 	cli "github.com/urfave/cli/v2"
-	"stackerbuild.io/stacker/pkg/stacker"
+	"github.com/raharper/stacker/pkg/stacker"
 )
 
 var unprivSetupCmd = cli.Command{

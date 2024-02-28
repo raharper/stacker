@@ -22,12 +22,12 @@ import (
 	"github.com/opencontainers/umoci/oci/layer"
 	"github.com/pkg/errors"
 	"github.com/pkg/xattr"
-	"stackerbuild.io/stacker/pkg/lib"
-	"stackerbuild.io/stacker/pkg/log"
-	stackeroci "stackerbuild.io/stacker/pkg/oci"
-	"stackerbuild.io/stacker/pkg/squashfs"
-	"stackerbuild.io/stacker/pkg/storage"
-	"stackerbuild.io/stacker/pkg/types"
+	"github.com/raharper/stacker/pkg/lib"
+	"github.com/raharper/stacker/pkg/log"
+	stackeroci "github.com/raharper/stacker/pkg/oci"
+	"github.com/raharper/stacker/pkg/squashfs"
+	"github.com/raharper/stacker/pkg/storage"
+	"github.com/raharper/stacker/pkg/types"
 )
 
 var tarEx sync.Mutex

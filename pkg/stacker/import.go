@@ -11,9 +11,9 @@ import (
 	"github.com/pkg/errors"
 	"github.com/udhos/equalfile"
 	"github.com/vbatts/go-mtree"
-	"stackerbuild.io/stacker/pkg/lib"
-	"stackerbuild.io/stacker/pkg/log"
-	"stackerbuild.io/stacker/pkg/types"
+	"github.com/raharper/stacker/pkg/lib"
+	"github.com/raharper/stacker/pkg/log"
+	"github.com/raharper/stacker/pkg/types"
 )
 
 // filesDiffer returns true if the files are different, false if they are the same.
@@ -262,7 +262,7 @@ func acquireUrl(c types.StackerConfig, storage types.Storage, i string, cache st
 		remoteHash, remoteSize, err := getHttpFileInfo(i)
 		if err != nil {
 			// Needed for "working offline"
-			// See https://stackerbuild.io/stacker/issues/44
+			// See https://github.com/raharper/stacker/issues/44
 			log.Infof("cannot obtain file info of %s", i)
 		}
 		log.Debugf("Remote file: hash: %s length: %s", remoteHash, remoteSize)
