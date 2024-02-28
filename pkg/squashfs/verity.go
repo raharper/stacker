@@ -74,8 +74,8 @@ import (
 	"unsafe"
 
 	"github.com/freddierice/go-losetup"
-	"github.com/martinjungblut/go-cryptsetup"
 	"github.com/pkg/errors"
+	"github.com/sylabs/go-cryptsetup"
 	"golang.org/x/sys/unix"
 	"stackerbuild.io/stacker/pkg/mount"
 )

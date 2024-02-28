@@ -17,7 +17,6 @@ require (
 	github.com/klauspost/pgzip v1.2.6
 	github.com/lxc/go-lxc v0.0.0-20230926171149-ccae595aa49e
 	github.com/lxc/incus v0.3.1-0.20231215145534-1719ffcbab9d
-	github.com/martinjungblut/go-cryptsetup v0.0.0-20220520180014-fd0874fd07a6
 	github.com/minio/sha256-simd v1.0.1
 	github.com/mitchellh/hashstructure v1.1.0
 	github.com/moby/buildkit v0.11.4
@@ -29,6 +28,7 @@ require (
 	github.com/sirupsen/logrus v1.9.3
 	github.com/smartystreets/goconvey v1.7.2
 	github.com/stretchr/testify v1.8.4
+	github.com/sylabs/go-cryptsetup v0.2.1
 	github.com/twmb/algoimpl v0.0.0-20170717182524-076353e90b94
 	github.com/udhos/equalfile v0.3.0
 	github.com/urfave/cli/v2 v2.25.0
