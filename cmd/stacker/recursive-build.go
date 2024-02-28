@@ -1,9 +1,9 @@
 package main
 
 import (
-	cli "github.com/urfave/cli/v2"
 	"github.com/raharper/stacker/pkg/lib"
 	"github.com/raharper/stacker/pkg/stacker"
+	cli "github.com/urfave/cli/v2"
 )
 
 const stackerFilePathRegex = "\\/stacker.yaml$"

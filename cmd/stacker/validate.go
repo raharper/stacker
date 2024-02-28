@@ -6,8 +6,8 @@ import (
 	"strings"
 
 	"github.com/pkg/errors"
-	cli "github.com/urfave/cli/v2"
 	"github.com/raharper/stacker/pkg/stacker"
+	cli "github.com/urfave/cli/v2"
 )
 
 /*

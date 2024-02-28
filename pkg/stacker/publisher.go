@@ -21,10 +21,10 @@ import (
 	"github.com/opencontainers/umoci"
 	"github.com/opencontainers/umoci/oci/casext"
 	"github.com/pkg/errors"
-	"gopkg.in/yaml.v2"
 	"github.com/raharper/stacker/pkg/lib"
 	"github.com/raharper/stacker/pkg/log"
 	"github.com/raharper/stacker/pkg/types"
+	"gopkg.in/yaml.v2"
 )
 
 type PublishArgs struct {

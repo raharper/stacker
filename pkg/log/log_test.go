@@ -5,8 +5,8 @@ import (
 
 	"testing"
 
-	. "github.com/smartystreets/goconvey/convey"
 	"github.com/raharper/stacker/pkg/log"
+	. "github.com/smartystreets/goconvey/convey"
 )
 
 func TestLog(t *testing.T) {

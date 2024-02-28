@@ -1,9 +1,9 @@
 package stacker
 
 import (
-	"sort"
 	"github.com/raharper/stacker/pkg/lib"
 	"github.com/raharper/stacker/pkg/types"
+	"sort"
 )
 
 // StackerDepsDAG processes the dependencies between different stacker recipes

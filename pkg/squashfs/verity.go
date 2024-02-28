@@ -75,9 +75,10 @@ import (
 
 	"github.com/freddierice/go-losetup"
 	"github.com/pkg/errors"
+	"github.com/raharper/stacker/pkg/log"
+	"github.com/raharper/stacker/pkg/mount"
 	"github.com/sylabs/go-cryptsetup"
 	"golang.org/x/sys/unix"
-	"github.com/raharper/stacker/pkg/mount"
 )
 
 const VerityRootHashAnnotation = "io.stackeroci.stacker.squashfs_verity_root_hash"
@@ -88,9 +89,35 @@ type verityDeviceType struct {
 	HashOffset uint64
 }
 
+func cryptsetupLogHandler(level int, message string) {
+	log.Errorf("cryptsetup: [level=%d] %s", level, message)
+}
+
+func init() {
+	cryptsetup.SetDebugLevel(cryptsetup.CRYPT_DEBUG_ALL)
+	cryptsetup.SetLogCallback(cryptsetupLogHandler)
+}
+
 func (verity verityDeviceType) Name() string {
 	return C.CRYPT_VERITY
 }
+
+// struct crypt_params_verity {
+//     const char *hash_name;     /**< hash function */
+//     const char *data_device;   /**< data_device (CRYPT_VERITY_CREATE_HASH) */
+//     const char *hash_device;   /**< hash_device (output only) */
+//     const char *fec_device;    /**< fec_device (output only) */
+//     const char *salt;          /**< salt */
+//     uint32_t salt_size;        /**< salt size (in bytes) */
+//     uint32_t hash_type;        /**< in-kernel hashing type */
+//     uint32_t data_block_size;  /**< data block size (in bytes) */
+//     uint32_t hash_block_size;  /**< hash block size (in bytes) */
+//     uint64_t data_size;        /**< data area size (in data blocks) */
+//     uint64_t hash_area_offset; /**< hash/header offset (in bytes) */
+//     uint64_t fec_area_offset;  /**< FEC/header offset (in bytes) */
+//     uint32_t fec_roots;        /**< Reed-Solomon FEC roots */
+//     uint32_t flags;            /**< CRYPT_VERITY* flags */
+// };
 
 func (verity verityDeviceType) Unmanaged() (unsafe.Pointer, func()) {
 	var cParams C.struct_crypt_params_verity
@@ -98,21 +125,18 @@ func (verity verityDeviceType) Unmanaged() (unsafe.Pointer, func()) {
 	cParams.hash_name = C.CString("sha256")
 	cParams.data_device = C.CString(verity.DataDevice)
 	cParams.fec_device = nil
-	cParams.fec_roots = 0
-
-	cParams.salt_size = 32 // DEFAULT_VERITY_SALT_SIZE for x86
 	cParams.salt = nil
-
+	cParams.salt_size = 32 // DEFAULT_VERITY_SALT_SIZE for x86
+	cParams.hash_type = 1  // use format version 1 (i.e. "modern", non chrome-os)
 	// these can't be larger than a page size, but we want them to be as
 	// big as possible so the hash data is small, so let's set them to a
 	// page size.
 	cParams.data_block_size = C.uint(os.Getpagesize())
 	cParams.hash_block_size = C.uint(os.Getpagesize())
-
 	cParams.data_size = C.ulong(verity.HashOffset / uint64(os.Getpagesize()))
 	cParams.hash_area_offset = C.ulong(verity.HashOffset)
 	cParams.fec_area_offset = 0
-	cParams.hash_type = 1 // use format version 1 (i.e. "modern", non chrome-os)
+	cParams.fec_roots = 0
 	cParams.flags = C.uint(verity.Flags)
 
 	deallocate := func() {

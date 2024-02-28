@@ -8,12 +8,12 @@ import (
 	"strings"
 
 	"github.com/pkg/errors"
-	cli "github.com/urfave/cli/v2"
-	"golang.org/x/sys/unix"
 	"github.com/raharper/stacker/pkg/atomfs"
 	"github.com/raharper/stacker/pkg/lib"
 	"github.com/raharper/stacker/pkg/log"
 	"github.com/raharper/stacker/pkg/overlay"
+	cli "github.com/urfave/cli/v2"
+	"golang.org/x/sys/unix"
 )
 
 var internalGoCmd = cli.Command{

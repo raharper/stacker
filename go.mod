@@ -22,7 +22,7 @@ require (
 	github.com/moby/buildkit v0.11.4
 	github.com/opencontainers/go-digest v1.0.0
 	github.com/opencontainers/image-spec v1.1.0-rc4
-	github.com/opencontainers/umoci v0.0.0-00000000000000-000000000000
+	github.com/opencontainers/umoci v0.4.8-0.20220412065115-12453f247749
 	github.com/pkg/errors v0.9.1
 	github.com/pkg/xattr v0.4.9
 	github.com/sirupsen/logrus v1.9.3
@@ -38,6 +38,7 @@ require (
 	gopkg.in/yaml.v2 v2.4.0
 	sigs.k8s.io/bom v0.5.2-0.20231020154325-c94debbb2690
 	sigs.k8s.io/yaml v1.3.0
+	stackerbuild.io/stacker v0.40.5
 	stackerbuild.io/stacker-bom v0.0.0-00010101000000-000000000000
 )
 
@@ -69,6 +70,7 @@ require (
 	github.com/anchore/stereoscope v0.0.0-20230925132944-bf05af58eb44 // indirect
 	github.com/anchore/syft v0.90.0 // indirect
 	github.com/andybalholm/brotli v1.0.6 // indirect
+	github.com/anuvu/squashfs v0.0.4 // indirect
 	github.com/aquasecurity/go-pep440-version v0.0.0-20210121094942-22b2f8951d46 // indirect
 	github.com/aquasecurity/go-version v0.0.0-20210121072130-637058cfe492 // indirect
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d // indirect
@@ -165,6 +167,7 @@ require (
 	github.com/magiconair/properties v1.8.7 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/martencassel/go-apkutils v0.2.9 // indirect
+	github.com/martinjungblut/go-cryptsetup v0.0.0-20220314071908-7b9938e4a08c // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-runewidth v0.0.15 // indirect

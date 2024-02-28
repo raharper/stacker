@@ -9,11 +9,11 @@ import (
 	"github.com/opencontainers/go-digest"
 
 	"github.com/pkg/errors"
-	"github.com/udhos/equalfile"
-	"github.com/vbatts/go-mtree"
 	"github.com/raharper/stacker/pkg/lib"
 	"github.com/raharper/stacker/pkg/log"
 	"github.com/raharper/stacker/pkg/types"
+	"github.com/udhos/equalfile"
+	"github.com/vbatts/go-mtree"
 )
 
 // filesDiffer returns true if the files are different, false if they are the same.

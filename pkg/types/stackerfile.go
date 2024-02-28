@@ -11,8 +11,8 @@ import (
 	"strings"
 
 	"github.com/pkg/errors"
-	"gopkg.in/yaml.v2"
 	"github.com/raharper/stacker/pkg/log"
+	"gopkg.in/yaml.v2"
 )
 
 const (

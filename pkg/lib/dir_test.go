@@ -5,8 +5,8 @@ import (
 	"path"
 	"testing"
 
-	. "github.com/smartystreets/goconvey/convey"
 	"github.com/raharper/stacker/pkg/lib"
+	. "github.com/smartystreets/goconvey/convey"
 )
 
 func TestDir(t *testing.T) {

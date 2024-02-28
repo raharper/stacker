@@ -10,8 +10,8 @@ import (
 	"github.com/opencontainers/umoci"
 	"github.com/opencontainers/umoci/oci/casext"
 	"github.com/pkg/errors"
-	cli "github.com/urfave/cli/v2"
 	stackeroci "github.com/raharper/stacker/pkg/oci"
+	cli "github.com/urfave/cli/v2"
 )
 
 var inspectCmd = cli.Command{

@@ -16,11 +16,11 @@ import (
 	"github.com/opencontainers/umoci/mutate"
 	"github.com/opencontainers/umoci/oci/casext"
 	"github.com/pkg/errors"
-	"gopkg.in/yaml.v2"
 	"github.com/raharper/stacker/pkg/container"
 	"github.com/raharper/stacker/pkg/log"
 	"github.com/raharper/stacker/pkg/test"
 	"github.com/raharper/stacker/pkg/types"
+	"gopkg.in/yaml.v2"
 )
 
 const (

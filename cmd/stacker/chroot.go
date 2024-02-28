@@ -5,11 +5,11 @@ import (
 	"os"
 
 	"github.com/pkg/errors"
-	cli "github.com/urfave/cli/v2"
 	"github.com/raharper/stacker/pkg/container"
 	"github.com/raharper/stacker/pkg/log"
 	"github.com/raharper/stacker/pkg/stacker"
 	"github.com/raharper/stacker/pkg/types"
+	cli "github.com/urfave/cli/v2"
 )
 
 var chrootCmd = cli.Command{

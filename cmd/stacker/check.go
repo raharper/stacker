@@ -8,10 +8,10 @@ import (
 
 	"github.com/pkg/errors"
 	"github.com/pkg/xattr"
-	cli "github.com/urfave/cli/v2"
 	"github.com/raharper/stacker/pkg/log"
 	"github.com/raharper/stacker/pkg/overlay"
 	"github.com/raharper/stacker/pkg/stacker"
+	cli "github.com/urfave/cli/v2"
 )
 
 var checkCmd = cli.Command{

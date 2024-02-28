@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 
-	cli "github.com/urfave/cli/v2"
 	"github.com/raharper/stacker/pkg/squashfs"
 	"github.com/raharper/stacker/pkg/stacker"
 	"github.com/raharper/stacker/pkg/types"
+	cli "github.com/urfave/cli/v2"
 )
 
 var buildCmd = cli.Command{

@@ -11,9 +11,9 @@ import (
 	"github.com/apparentlymart/go-shquot/shquot"
 	"github.com/moby/buildkit/frontend/dockerfile/parser"
 	"github.com/pkg/errors"
-	"sigs.k8s.io/yaml"
 	"github.com/raharper/stacker/pkg/log"
 	"github.com/raharper/stacker/pkg/types"
+	"sigs.k8s.io/yaml"
 )
 
 type Stackerfile map[string]*types.Layer

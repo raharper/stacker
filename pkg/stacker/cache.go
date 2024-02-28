@@ -16,10 +16,10 @@ import (
 	"github.com/opencontainers/umoci"
 	"github.com/opencontainers/umoci/oci/casext"
 	"github.com/pkg/errors"
-	"github.com/vbatts/go-mtree"
 	"github.com/raharper/stacker/pkg/lib"
 	"github.com/raharper/stacker/pkg/log"
 	"github.com/raharper/stacker/pkg/types"
+	"github.com/vbatts/go-mtree"
 )
 
 const currentCacheVersion = 13

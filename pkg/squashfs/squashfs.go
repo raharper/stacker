@@ -17,9 +17,9 @@ import (
 
 	"github.com/Masterminds/semver/v3"
 	"github.com/pkg/errors"
-	"golang.org/x/sys/unix"
 	"github.com/raharper/stacker/pkg/log"
 	"github.com/raharper/stacker/pkg/mount"
+	"golang.org/x/sys/unix"
 )
 
 var checkZstdSupported sync.Once
