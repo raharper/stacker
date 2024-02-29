@@ -63,14 +63,17 @@ out:
 import "C"
 
 import (
+	crand "crypto/rand"
 	"encoding/hex"
 	"fmt"
+	"math/rand"
 	"os"
 	"path"
 	"path/filepath"
 	"strconv"
 	"strings"
 	"syscall"
+	"time"
 	"unsafe"
 
 	"github.com/freddierice/go-losetup"
@@ -87,6 +90,7 @@ type verityDeviceType struct {
 	Flags      uint
 	DataDevice string
 	HashOffset uint64
+	Salt       string
 }
 
 func cryptsetupLogHandler(level int, message string) {
@@ -94,6 +98,7 @@ func cryptsetupLogHandler(level int, message string) {
 }
 
 func init() {
+	rand.New(rand.NewSource(time.Now().UnixNano()))
 	cryptsetup.SetDebugLevel(cryptsetup.CRYPT_DEBUG_ALL)
 	cryptsetup.SetLogCallback(cryptsetupLogHandler)
 }
@@ -120,14 +125,41 @@ func (verity verityDeviceType) Name() string {
 // };
 
 func (verity verityDeviceType) Unmanaged() (unsafe.Pointer, func()) {
+	deallocations := make([]func(), 0)
+	deallocate := func() {
+		for index := 0; index < len(deallocations); index++ {
+			deallocations[index]()
+		}
+	}
+
 	var cParams C.struct_crypt_params_verity
 
+	// we currently only use sha256
 	cParams.hash_name = C.CString("sha256")
-	cParams.data_device = C.CString(verity.DataDevice)
+	deallocations = append(deallocations, func() {
+		C.free(unsafe.Pointer(cParams.hash_name))
+	})
+
+	cParams.data_device = nil
+	if len(verity.DataDevice) > 0 {
+		cParams.data_device = C.CString(verity.DataDevice)
+		deallocations = append(deallocations, func() {
+			C.free(unsafe.Pointer(cParams.data_device))
+		})
+	}
+
 	cParams.fec_device = nil
 	cParams.salt = nil
 	cParams.salt_size = 32 // DEFAULT_VERITY_SALT_SIZE for x86
-	cParams.hash_type = 1  // use format version 1 (i.e. "modern", non chrome-os)
+	if len(verity.Salt) > 0 {
+		cParams.salt = C.CString(verity.Salt)
+		cParams.salt_size = C.uint(len(verity.Salt))
+		deallocations = append(deallocations, func() {
+			C.free(unsafe.Pointer(cParams.salt))
+		})
+	}
+
+	cParams.hash_type = 1 // use format version 1 (i.e. "modern", non chrome-os)
 	// these can't be larger than a page size, but we want them to be as
 	// big as possible so the hash data is small, so let's set them to a
 	// page size.
@@ -138,11 +170,6 @@ func (verity verityDeviceType) Unmanaged() (unsafe.Pointer, func()) {
 	cParams.fec_area_offset = 0
 	cParams.fec_roots = 0
 	cParams.flags = C.uint(verity.Flags)
-
-	deallocate := func() {
-		C.free(unsafe.Pointer(cParams.hash_name))
-		C.free(unsafe.Pointer(cParams.data_device))
-	}
 
 	return unsafe.Pointer(&cParams), deallocate
 }
@@ -174,10 +201,22 @@ func appendVerityData(file string) (string, error) {
 		return "", errors.WithStack(err)
 	}
 
+	// generate some salt data
+	saltSize := 32 // DEFAULT_VERITY_SALE_SIZE
+	salt := make([]byte, saltSize)
+	n, err := crand.Read(salt)
+	if err != nil {
+		return "", errors.WithStack(err)
+	}
+	if n != saltSize {
+		return "", errors.WithStack(errors.Errorf("failed to read %d random bytes: %s", saltSize, err))
+	}
+
 	verityType := verityDeviceType{
 		Flags:      cryptsetup.CRYPT_VERITY_CREATE_HASH,
 		DataDevice: file,
 		HashOffset: uint64(verityOffset),
+		Salt:       string(salt),
 	}
 	err = verityDevice.Format(verityType, cryptsetup.GenericParams{})
 	if err != nil {
