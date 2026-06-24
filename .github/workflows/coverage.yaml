@@ -50,13 +50,13 @@ jobs:
         privilege-level: ${{fromJson(inputs.privilege-level)}}
     name: "golang ${{ matrix.go-version }} privilege ${{ matrix.privilege-level }}"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Clean disk space
         uses: ./.github/actions/clean-runner
-      - uses: benjlevesque/short-sha@v2.1
+      - uses: benjlevesque/short-sha@v3.0
         id: short-sha
       - name: Set up golang ${{ matrix.go-version }}
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: ${{ matrix.go-version }}
       - name: Setup Environment
@@ -110,14 +110,14 @@ jobs:
           token: ${{ secrets.codecov_token }}
           files: coverage-${{ matrix.privilege-level}}.txt
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: ${{ (matrix.privilege-level == 'priv') }}
         with:
           # if there is more than 1 go-version, we would need to account for that here.
           name: binary-cov
           path: stacker
           if-no-files-found: error
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         id: restore-build
         with:
           path: stacker

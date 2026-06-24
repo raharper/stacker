@@ -11,8 +11,8 @@ jobs:
     outputs:
       build-id: ${{steps.build-id.outputs.build-id}}
     steps:
-      - uses: actions/checkout@v4
-      - uses: benjlevesque/short-sha@v2.1
+      - uses: actions/checkout@v7
+      - uses: benjlevesque/short-sha@v3.0
         id: short-sha
       - id: build-id
         run: echo "build-id=${{ github.event.release.tag_name }}-${{ steps.short-sha.outputs.sha }}" >> "$GITHUB_OUTPUT"
@@ -39,7 +39,7 @@ jobs:
     # needs ci for the cached stacker binary
     needs: [build-id, ci]
     steps:
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         id: restore-build
         with:
           path: stacker-${{ matrix.platform }}
