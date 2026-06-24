@@ -11,11 +11,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/containers/image/v5/pkg/docker/config"
-	"github.com/containers/image/v5/types"
-
 	"github.com/cheggaaa/pb/v3"
 	"github.com/pkg/errors"
+	"go.podman.io/image/v5/pkg/docker/config"
+	"go.podman.io/image/v5/types"
 	"stackerbuild.io/stacker/pkg/lib"
 	"stackerbuild.io/stacker/pkg/log"
 )
