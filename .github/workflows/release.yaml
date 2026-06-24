@@ -39,7 +39,7 @@ jobs:
     # needs ci for the cached stacker binary
     needs: [build-id, ci]
     steps:
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         id: restore-build
         with:
           path: stacker-${{ matrix.platform }}

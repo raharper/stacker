@@ -130,7 +130,7 @@ jobs:
           name: stacker-${{ matrix.platform }}
           path: stacker-${{ matrix.platform }}
           if-no-files-found: error
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         id: restore-build
         with:
           path: stacker-${{ matrix.platform }}
