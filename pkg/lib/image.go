@@ -5,15 +5,15 @@ import (
 	"io"
 	"strings"
 
-	"github.com/containers/image/v5/copy"
-	"github.com/containers/image/v5/docker"
-	"github.com/containers/image/v5/docker/daemon"
-	"github.com/containers/image/v5/oci/layout"
-	"github.com/containers/image/v5/signature"
-	"github.com/containers/image/v5/types"
 	ispec "github.com/opencontainers/image-spec/specs-go/v1"
 	"github.com/opencontainers/umoci"
 	"github.com/pkg/errors"
+	"go.podman.io/image/v5/copy"
+	"go.podman.io/image/v5/docker"
+	"go.podman.io/image/v5/docker/daemon"
+	"go.podman.io/image/v5/oci/layout"
+	"go.podman.io/image/v5/signature"
+	"go.podman.io/image/v5/types"
 )
 
 var urlSchemes map[string]func(string) (types.ImageReference, error)
