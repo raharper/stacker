@@ -199,5 +199,14 @@ if ! [ -s "${POLICY}" ]; then
     echo '{"default":[{"type":"insecureAcceptAnything"}]}' | sudo tee "${POLICY}"
 fi
 
+# move containers registries.conf out of the way if present
+for conf in $HOME/.config/containers /etc/containers; do
+    regconf="${conf}/registries.conf"
+    if [ -s "$regconf" ]; then
+        echo "Found a containers registries.conf (${regconf}) moving out of the way"
+        sudo mv -v "${regconf}" "${regconf}.stacker"
+    fi
+done
+
 # install golang deps
 installdeps_golang || exit 1
