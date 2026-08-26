@@ -44,6 +44,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v7
+      with:
+        fetch-tags: true
 
     - name: Install go
       uses: actions/setup-go@v6
