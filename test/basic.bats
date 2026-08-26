@@ -94,8 +94,8 @@ EOF
 
     publishedGitVersion=$(cat oci/blobs/sha256/$manifest | jq -r '.annotations."io.stackeroci.stacker.git_version"')
     echo "WARK1: publishedGitVersion=${publishedGitVersion}" >&3
-    echo "WARK1: VERSION_FULL=${VERSION_FULL}" >&3
-    [ "$publishedGitVersion" = "$VERSION_FULL" ]
+    echo "WARK1: VERSION=${VERSION}" >&3
+    [ "$publishedGitVersion" = "$VERSION" ]
 
     # need to trim the extra newline from jq
     cat oci/blobs/sha256/$manifest | jq -r '.annotations."io.stackeroci.stacker.stacker_yaml"' | sed '$ d' > stacker_yaml_annotation
@@ -259,8 +259,8 @@ EOF
 
     publishedGitVersion=$(cat oci/blobs/sha256/$manifest | jq -r '.annotations."io.stackeroci.stacker.git_version"')
     echo "WARK2: publishedGitVersion=${publishedGitVersion}" >&3
-    echo "WARK2: VERSION_FULL=${VERSION_FULL}" >&3
-    [ "$publishedGitVersion" = "$VERSION_FULL" ]
+    echo "WARK2: VERSION=${VERSION}" >&3
+    [ "$publishedGitVersion" = "$VERSION" ]
 
     # need to trim the extra newline from jq
     cat oci/blobs/sha256/$manifest | jq -r '.annotations."io.stackeroci.stacker.stacker_yaml"' | sed '$ d' > stacker_yaml_annotation
