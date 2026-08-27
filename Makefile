@@ -262,6 +262,9 @@ docker-clone: $(SKOPEO)
 .PHONY: show-info
 show-info:
 	@echo BUILD_D=$(BUILD_D)
+	@echo BUILD_ID=$(BUILD_ID)
+	@echo VERSION=$(VERSION)
+	@echo TOP_LEVEL=$(TOP_LEVEL)
 	@go env
 
 .PHONY: vendorup
