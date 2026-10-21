@@ -3,19 +3,16 @@ module stackerbuild.io/stacker
 go 1.26.9
 
 require (
-	github.com/Masterminds/semver/v3 v3.3.1
 	github.com/anmitsu/go-shlex v0.0.0-20200514113438-38f4b401e2be
 	github.com/apex/log v1.9.0
 	github.com/apparentlymart/go-shquot v0.0.1
 	github.com/cheggaaa/pb/v3 v3.2.1
 	github.com/dustin/go-humanize v1.0.1
-	github.com/freddierice/go-losetup v0.0.0-20220711213114-2a14873012db
 	github.com/google/uuid v1.6.0
 	github.com/justincormack/go-memfd v0.0.0-20170219213707-6e4af0518993
 	github.com/klauspost/pgzip v1.2.6
 	github.com/lxc/go-lxc v0.0.0-20260316180011-3af4ce000ed7
 	github.com/lxc/incus/v7 v7.4.0
-	github.com/martinjungblut/go-cryptsetup v0.0.0-20220520180014-fd0874fd07a6
 	github.com/minio/sha256-simd v1.0.1
 	github.com/mitchellh/hashstructure v1.1.0
 	github.com/moby/buildkit v0.32.2
@@ -39,6 +36,7 @@ require (
 
 require (
 	cyphar.com/go-pathrs v0.2.5 // indirect
+	github.com/Masterminds/semver/v3 v3.3.1 // indirect
 	github.com/ProtonMail/go-crypto v1.4.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/clipperhouse/uax29/v2 v2.7.0 // indirect
@@ -49,9 +47,11 @@ require (
 	github.com/containerd/platforms v1.0.0-rc.5 // indirect
 	github.com/cyphar/filepath-securejoin v0.7.0 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
+	github.com/freddierice/go-losetup v0.0.0-20220711213114-2a14873012db // indirect
 	github.com/go-jose/go-jose/v4 v4.1.4 // indirect
 	github.com/go-logr/logr v1.4.4 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
+	github.com/martinjungblut/go-cryptsetup v0.0.0-20220520180014-fd0874fd07a6 // indirect
 	github.com/mattn/go-sqlite3 v1.14.50 // indirect
 	github.com/mistifyio/go-zfs/v4 v4.0.0 // indirect
 	github.com/moby/docker-image-spec v1.3.1 // indirect
